@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/vanyaio/tenv/dpdk-pmd-ts/ts/perf'
+let g:netrw_dirhist_2='/home/vanyaio/tenv/dpdk-pmd-ts/ts/lib'
+let g:netrw_dirhist_3='/home/vanyaio/tenv/dpdk-pmd-ts/ts/perf'
