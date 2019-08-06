@@ -54,3 +54,6 @@ nnoremap H gT
 nnoremap L gt
 nnoremap <leader>w <C-w>w
 map <C-c> :BD<cr>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+nnoremap o o<Esc>
+nnoremap O O<Esc>
