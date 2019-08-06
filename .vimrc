@@ -53,3 +53,4 @@ nmap ,f :NERDTreeFind<CR>
 nnoremap H gT
 nnoremap L gt
 nnoremap <leader>w <C-w>w
+map <C-c> :BD<cr>
