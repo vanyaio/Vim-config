@@ -70,7 +70,7 @@ nnoremap <leader>w <C-w>w
 
 map <C-c> :BD<cr>
 
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap  <leader>r "hy:%s/<C-r>h//gc<left><left><left>
 vnoremap  <leader>k "hy:%s/<C-r>h//gn<CR>
 
 nnoremap o o<Esc>
