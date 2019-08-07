@@ -5,7 +5,9 @@ set laststatus=2
 set statusline=%F
 set statusline+=col:\ %c
 set statusline+=%m
+let mapleader=" "
 
+set hlsearch
 set expandtab
 set tabstop=4
 set softtabstop=4
