@@ -50,6 +50,7 @@ inoremap <C-l> <C-n>
 map ,* *<C-O>:%s///gn<CR>
 
 "set cscoperelative
+"ctags -R --exclude=dpdk-pmd-ts.run --c-kinds=+pfl
 
 map <leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
@@ -62,6 +63,7 @@ execute pathogen#infect()
 
 let NERDTreeShowBookmarks=1
 nmap ,f :NERDTreeFind<CR>
+nmap <leader>c :ClearBookmarks
 
 nnoremap H gT
 nnoremap L gt
