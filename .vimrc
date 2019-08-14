@@ -15,7 +15,7 @@ set laststatus=2
 set statusline=%F
 set statusline+=col:\ %c
 set statusline+=%m
-let mapleader=" "
+noremap <Space> <Leader>
 
 set hlsearch
 set expandtab
@@ -68,7 +68,8 @@ nmap <leader>c :ClearBookmarks
 nnoremap H gT
 nnoremap L gt
 
-nnoremap <leader>w <C-w>w
+nnoremap <leader>w <C-w>
+nnoremap <leader>t <C-w><C-]><C-w>T
 
 map <C-c> :BD<cr>
 
