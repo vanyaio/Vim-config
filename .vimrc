@@ -6,6 +6,14 @@ call vundle#begin()
 Plugin 'hari-rangarajan/CCTree'
 
 call vundle#end()
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
 filetype plugin indent on
 
 set number
@@ -15,7 +23,9 @@ set laststatus=2
 set statusline=%F
 set statusline+=col:\ %c
 set statusline+=%m
-noremap <Space> <Leader>
+set showcmd
+vmap <Space> <Leader>
+nmap <Space> <Leader>
 
 set hlsearch
 set expandtab
@@ -42,8 +52,8 @@ hi PreProc ctermfg=100
 hi Number ctermfg=100
 hi Comment ctermfg=blue
 hi Special ctermfg=100
-hi ExtraWhiteSpace ctermbg=red guibg=red
-match ExtraWhiteSpace /\s\+$/
+"hi ExtraWhiteSpace ctermbg=red guibg=red
+"match ExtraWhiteSpace /\s\+$/
 
 inoremap <C-l> <C-n>
 
@@ -54,10 +64,12 @@ map ,* *<C-O>:%s///gn<CR>
 
 map <leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-set cc=81
+"set cc=81
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-nmap <C-m> :CtrlPBuffer<CR>
+nmap <C-m> :Buffers<CR>
+nmap <C-p> :FZF<CR>
+nmap <Leader>h :History<CR>
 
 execute pathogen#infect()
 
@@ -79,5 +91,5 @@ vnoremap  <leader>k "hy:%s/<C-r>h//gn<CR>
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 
-let CCTreeCscopeDb="cscope.out"
+let CCTreeCscopeDB="cscope.out"
 let g:CCTreeRecursiveDepth=0
