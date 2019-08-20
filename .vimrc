@@ -52,8 +52,8 @@ hi PreProc ctermfg=100
 hi Number ctermfg=100
 hi Comment ctermfg=blue
 hi Special ctermfg=100
-"hi ExtraWhiteSpace ctermbg=red guibg=red
-"match ExtraWhiteSpace /\s\+$/
+hi ExtraWhiteSpace ctermbg=red guibg=red
+match ExtraWhiteSpace /\s\+$/
 
 inoremap <C-l> <C-n>
 
@@ -64,7 +64,7 @@ map ,* *<C-O>:%s///gn<CR>
 
 map <leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-"set cc=81
+set cc=81
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 nmap <C-m> :Buffers<CR>
@@ -80,7 +80,6 @@ nmap <leader>c :ClearBookmarks
 nnoremap H gT
 nnoremap L gt
 
-nnoremap <leader>w <C-w>
 nnoremap <leader>t <C-w><C-]><C-w>T
 
 map <C-c> :BD<cr>
@@ -93,3 +92,5 @@ nnoremap O O<Esc>
 
 let CCTreeCscopeDB="cscope.out"
 let g:CCTreeRecursiveDepth=0
+
+command Ter terminal ++curwin
