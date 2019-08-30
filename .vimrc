@@ -28,10 +28,10 @@ vmap <Space> <Leader>
 nmap <Space> <Leader>
 
 set hlsearch
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set noexpandtab
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
 set backspace=indent,eol,start
 set cindent
 
@@ -69,7 +69,7 @@ set cc=81
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 nmap <C-m> :Buffers<CR>
 nmap <C-p> :FZF<CR>
-nmap <Leader>h :History<CR>
+nmap <Leader>h :History
 
 execute pathogen#infect()
 
@@ -94,3 +94,4 @@ let CCTreeCscopeDB="cscope.out"
 let g:CCTreeRecursiveDepth=0
 
 command Ter terminal ++curwin
+command Cter q! | vsp | terminal ++curwin
