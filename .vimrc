@@ -17,7 +17,7 @@ call plug#end()
 filetype plugin indent on
 
 set number
-set autochdir
+set noautochdir
 set tags=tags;
 set laststatus=2
 set statusline=%F
