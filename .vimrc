@@ -4,6 +4,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'hari-rangarajan/CCTree'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 
@@ -17,6 +18,7 @@ call plug#end()
 filetype plugin indent on
 
 set number
+set relativenumber
 set noautochdir
 set tags=tags;
 set laststatus=2
@@ -29,9 +31,9 @@ nmap <Space> <Leader>
 
 set hlsearch
 set noexpandtab
-set tabstop=8
-set softtabstop=8
-set shiftwidth=8
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set backspace=indent,eol,start
 set cindent
 
@@ -95,3 +97,19 @@ let g:CCTreeRecursiveDepth=0
 
 command Ter terminal ++curwin
 command Cter q! | vsp | terminal ++curwin
+
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+map <Leader>f <Plug>(easymotion-f)
