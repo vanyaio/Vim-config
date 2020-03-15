@@ -17,9 +17,8 @@ call plug#end()
 
 filetype plugin indent on
 
-set number
 set relativenumber
-set noautochdir
+set number
 set tags=tags;
 set laststatus=2
 set statusline=%F
@@ -30,7 +29,7 @@ vmap <Space> <Leader>
 nmap <Space> <Leader>
 
 set hlsearch
-set noexpandtab
+set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -98,8 +97,9 @@ let g:CCTreeRecursiveDepth=0
 command Ter terminal ++curwin
 command Cter q! | vsp | terminal ++curwin
 
+
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 map z <Plug>(easymotion-bd-f2)
-nmap z <Plug>(easymotion-overwin-f2)
+nmap z <Plug>(easymotion-bd-f2)
 let g:EasyMotion_smartcase = 1
 map <Leader>f <Plug>(easymotion-f)
