@@ -29,7 +29,7 @@ vmap <Space> <Leader>
 nmap <Space> <Leader>
 
 set hlsearch
-set expandtab
+set noexpandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -87,6 +87,7 @@ map <C-c> :BD<cr>
 
 vnoremap  <leader>r "hy:%s/<C-r>h//gc<left><left><left>
 vnoremap  <leader>k "hy:%s/<C-r>h//gn<CR>
+vnoremap  <leader>g "hy:grep -r <C-r>h *<CR>
 
 nnoremap o o<Esc>
 nnoremap O O<Esc>
@@ -99,7 +100,14 @@ command Cter q! | vsp | terminal ++curwin
 
 
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-map z <Plug>(easymotion-bd-f2)
-nmap z <Plug>(easymotion-bd-f2)
+map <leader>z <Plug>(easymotion-bd-f2)
+nmap <leader>z <Plug>(easymotion-bd-f2)
 let g:EasyMotion_smartcase = 1
 map <Leader>f <Plug>(easymotion-f)
+
+
+"q: - command line history
+"vimgrep /malloc/ **/* 
+"grep -r malloc *
+"copen
+".cc
