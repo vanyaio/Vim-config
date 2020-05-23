@@ -87,7 +87,7 @@ map <C-c> :BD<cr>
 
 vnoremap  <leader>r "hy:%s/<C-r>h//gc<left><left><left>
 vnoremap  <leader>k "hy:%s/<C-r>h//gn<CR>
-vnoremap  <leader>g "hy:grep -r <C-r>h *<CR>
+vnoremap  <leader>g "hy:grep! -r <C-r>h *<CR>
 
 nnoremap o o<Esc>
 nnoremap O O<Esc>
