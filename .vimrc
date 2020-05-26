@@ -87,7 +87,6 @@ map <C-c> :BD<cr>
 
 vnoremap  <leader>r "hy:%s/<C-r>h//gc<left><left><left>
 vnoremap  <leader>k "hy:%s/<C-r>h//gn<CR>
-vnoremap  <leader>g "hy:grep! -r <C-r>h *<CR>
 
 nnoremap o o<Esc>
 nnoremap O O<Esc>
@@ -105,7 +104,24 @@ nmap <leader>z <Plug>(easymotion-bd-f2)
 let g:EasyMotion_smartcase = 1
 map <Leader>f <Plug>(easymotion-f)
 
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
 
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  " let g:ctrlp_use_caching = 0
+endif
+vnoremap  <leader>g "hy:grep <C-r>h <CR>:cw<CR>
+
+let @c ='"+y'
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 "q: - command line history
 "vimgrep /malloc/ **/* 
 "grep -r malloc *
