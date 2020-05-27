@@ -95,6 +95,8 @@ let CCTreeCscopeDB="cscope.out"
 let g:CCTreeRecursiveDepth=0
 
 command Ter terminal ++curwin
+command Vter vsp | Ter
+command T :tabe
 command Cter q! | vsp | terminal ++curwin
 
 
