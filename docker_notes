@@ -1,0 +1,76 @@
+docker container run alpine echo "Hello World"
+docker container run -d --name quotes alpine /bin/sh -c "while :; do echo $RANDOM; sleep 3; done"
+docker container ls -l
+
+docker container start quotes
+docker container stop quotes
+
+docker container exec -i -t quotes /bin/sh
+docker container exec -i -t ubuntu16 /bin/sh
+docker container attach quotes
+docker run -d --name nginx -p 8080:80 nginx:alpine
+
+docker container logs --tail 5 --follow quotes
+killdoc='docker container rm -f $(docker container ls -a -q)'
+killdoc="eval docker container rm -f $(docker container ls -a -q)"
+
+
+create images:
+docker container run -it --name sample alpine /bin/sh
+docker container diff sample
+docker container commit sample my-alpine
+docker image ls
+
+
+docker image build -t lser .
+(docker image build -t my-centos -f nonDockerfileName .)
+docker container run --rm -it lser
+
+volumes
+docker container run -d --name demo \
+               alpine /bin/sh -c 'echo "This is a test" > sample.txt; cat sample.txt'
+docker container run -d --name demo \
+               alpine /bin/sh -c 'echo "This is a test" > sample.txt'
+
+
+
+vols:
+docker volume create my-data
+docker volume inspect my-data
+docker container run --name test -it \
+           -v my-data:/data alpine /bin/sh
+
+network:
+docker network ls
+docker network create --driver bridge sample-net
+docker container run --name c3 -d --network sample-net alpine:latest ping 127.0.0.1
+docker container run --name c3 -it --network sample-net alpine:latest /bin/sh
+docker container run --name c4 -it --network sample-net alpine:latest /bin/sh
+
+
+docker container run --name pack busybox:latest touch /HelloWorld
+docker container commit -a "@vanyaio" -m "Added HelloWorld" pack pack-hello
+docker container run --name con  -it pack-hello:1 /bin/sh
+docker tag pack-hello pack-hello:1
+docker container commit con pack-hello
+
+
+
+killdoc='docker container rm -f $(docker container ls -a -q)' ; eval $killdoc; docker system prune --all --volumes
+docker-compose up
+
+docker container run -it bde2020/hadoop-base:2.0.0-hadoop3.2.1-java8 /bin/sh
+
+docker image build -t bde2020/hadoop-base:2.0.0-hadoop3.2.1-java8 .
+
+Namenode: http://172.22.0.7:9870/dfshealth.html#tab-overview
+History server: http://172.22.0.5:8188/applicationhistory
+Datanode: http://172.22.0.4:9864/
+Nodemanager: http://172.22.0.2:8042/node
+Resource manager: http://172.22.0.5:8088/
+
+
+docker container run -it --name xv6 osll/os_mooc:v1 /bin/bash
+docker pull ubuntu:16.04
+docker container run -it --name ubuntu16 ubuntu:16.04 /bin/bash
+docker container run -it --name jos -v ~/jos-labs:/labs jos-ubuntu /bin/bash
