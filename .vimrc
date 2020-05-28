@@ -1,3 +1,12 @@
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+			 " https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" :PlugInstall
+
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" :PluginInstall
+
+
+
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -7,15 +16,20 @@ Plugin 'hari-rangarajan/CCTree'
 Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
+filetype plugin indent on
+
+
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'kshenoy/vim-signature'
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
-filetype plugin indent on
 
 set relativenumber
 set number
