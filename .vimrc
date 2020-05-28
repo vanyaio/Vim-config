@@ -10,9 +10,9 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
+" Plugin 'hari-rangarajan/CCTree'
 call vundle#begin()
 
-Plugin 'hari-rangarajan/CCTree'
 Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
