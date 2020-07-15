@@ -27,6 +27,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'kshenoy/vim-signature'
 Plug 'preservim/nerdcommenter'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -143,3 +144,17 @@ nnoremap <C-H> <C-W><C-H>
 "grep -r malloc *
 "copen
 ".cc
+
+
+packadd termdebug
+let g:termdebug_wide=1
+
+" https://vi.stackexchange.com/questions/17128/working-with-line-continuations
+" glip\
+let g:easy_align_delimiters = {
+  \ '\': {
+  \     'pattern': '\\$',
+  \ },
+  \ }
+xmap gl <Plug>(EasyAlign)
+nmap gl <Plug>(EasyAlign)
