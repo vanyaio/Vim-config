@@ -158,3 +158,13 @@ let g:easy_align_delimiters = {
   \ }
 xmap gl <Plug>(EasyAlign)
 nmap gl <Plug>(EasyAlign)
+
+nnoremap <leader>p li<space><esc>p
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+
+noremap <leader>v :set paste<CR>"+p:set nopaste<CR>
