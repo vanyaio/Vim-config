@@ -28,9 +28,20 @@ Plug 'preservim/nerdtree'
 Plug 'kshenoy/vim-signature'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
+Plug 'fatih/vim-go'
+"GoImplements, GoDefType
 
 call plug#end()
 
+let g:go_fmt_autosave = 0
+let g:go_mod_fmt_autosave = 0
+let g:go_imports_autosave = 0
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+nmap <leader>i :GoImplements<CR>
+nmap <leader>t :GoDefType<CR>
+nmap <leader>g <c-w>f<c-w>L
+nmap <leader>u :GoBuildTags ""<CR>
 
 set relativenumber
 set number
@@ -60,38 +71,21 @@ vnoremap <S-Tab> <gV
 
 set background=dark
 syntax on
-hi Type ctermfg=100
-hi Constant ctermfg=100
-hi Identifier ctermfg=100
-hi Statement ctermfg=100
-hi PreProc ctermfg=100
-hi Number ctermfg=100
-hi Comment ctermfg=blue
-hi Special ctermfg=100
-hi ExtraWhiteSpace ctermbg=red guibg=red
-match ExtraWhiteSpace /\s\+$/
 
 inoremap <C-l> <C-n>
 
 map ,* *<C-O>:%s///gn<CR>
 
-"set cscoperelative
-"ctags -R --exclude=dpdk-pmd-ts.run --c-kinds=+pfl
-
 map <leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-set cc=81
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 nmap <C-m> :Buffers<CR>
 nmap <C-p> :FZF<CR>
 nmap <Leader>h :History
 
-execute pathogen#infect()
 
 let NERDTreeShowBookmarks=1
 nmap ,f :NERDTreeFind<CR>
-nmap <leader>c :ClearBookmarks
 
 nnoremap H gT
 nnoremap L gt
@@ -105,9 +99,6 @@ vnoremap  <leader>k "hy:%s/<C-r>h//gn<CR>
 
 nnoremap o o<Esc>
 nnoremap O O<Esc>
-
-let CCTreeCscopeDB="cscope.out"
-let g:CCTreeRecursiveDepth=0
 
 command Ter terminal ++curwin
 command Vter vsp | Ter
@@ -148,16 +139,6 @@ nnoremap <C-H> <C-W><C-H>
 
 packadd termdebug
 let g:termdebug_wide=1
-
-" https://vi.stackexchange.com/questions/17128/working-with-line-continuations
-" glip\
-let g:easy_align_delimiters = {
-  \ '\': {
-  \     'pattern': '\\$',
-  \ },
-  \ }
-xmap gl <Plug>(EasyAlign)
-nmap gl <Plug>(EasyAlign)
 
 nnoremap <leader>p li<space><esc>p
 noremap <leader>1 1gt
